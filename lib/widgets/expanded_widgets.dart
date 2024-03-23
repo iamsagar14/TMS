@@ -4,7 +4,6 @@ import 'package:tms/utils/buildContext_extension.dart';
 class ExpandedWidget extends StatefulWidget {
   const ExpandedWidget({super.key, required this.text});
   final String text;
-
   @override
   State<ExpandedWidget> createState() => _ExpandedWidgetState();
 }

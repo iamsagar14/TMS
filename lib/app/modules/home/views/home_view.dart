@@ -19,7 +19,7 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       backgroundColor: context.appColor,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,9 +74,19 @@ class HomeView extends GetView<HomeController> {
                 child: Row(
                   children: List.generate(
                     10,
-                    (index) => const Padding(
-                      padding: EdgeInsets.only(right: 10.0),
-                      child: CategoryCard(),
+                    (index) => Padding(
+                      padding: const EdgeInsets.only(right: 5.0),
+                      child: CategoryCard(
+                        title: index == 0 ? 'Top 30 places' : 'Nature',
+                        imageurl: index == 0
+                            ? 'assets/starticon.png'
+                            : 'assets/starticon.png',
+                        iconBackgroundColor: index == 0
+                            ? context.mediumpurlpeColor
+                            : index == 1
+                                ? context.bizzardbluwColor
+                                : context.lightredColor,
+                      ),
                     ),
                   ),
                 ),
@@ -105,8 +115,7 @@ class HomeView extends GetView<HomeController> {
                         child: GestureDetector(
                           onTap: () {
                             Get.toNamed(
-                              Routes
-                                  .TOURPAGE, // Slide animation from right to left
+                              Routes.TOURPAGE,
                             );
                           },
                           child: const ImageSmallCard(

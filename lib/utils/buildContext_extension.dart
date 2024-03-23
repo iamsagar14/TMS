@@ -3,13 +3,14 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:tms/utils/app_theme.dart';
 
 extension ColorXContext on BuildContext {
-  HexColor get appPrimaryColor => AppTheme.appColor;
-  HexColor get appPrimaryBlackColor => AppTheme.appTitleColor;
-  HexColor get appTextBlackColor => AppTheme.cardColor;
-  HexColor get appTextLightBlackColor => AppTheme.mediumpurlpeColor;
-  HexColor get appTextWhiteColor => AppTheme.bizzardbluwColor;
-  HexColor get appTextGreyColor => AppTheme.lightredColor;
-  HexColor get borderColor => AppTheme.bodyredColor;
+  HexColor get appColor => AppTheme.appColor;
+  HexColor get appTitleColor => AppTheme.appTitleColor;
+  HexColor get cardColor => AppTheme.cardColor;
+  HexColor get mediumpurlpeColor => AppTheme.mediumpurlpeColor;
+  HexColor get bizzardbluwColor => AppTheme.bizzardbluwColor;
+  HexColor get lightredColor => AppTheme.lightredColor;
+  HexColor get buttonColor => AppTheme.buttonColor;
+   HexColor get yellowLightColor => AppTheme.yellowLightColor;
 }
 extension TextStyleXContext on BuildContext {
   TextStyle? get titleLarge => Theme.of(this).textTheme.titleLarge;

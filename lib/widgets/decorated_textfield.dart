@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:tms/utils/buildContext_extension.dart';
 import 'package:tms/utils/form_input.dart';
 
-
 mixin DecoratedBorder on Widget {
   OutlineInputBorder buildBorder(
       {Color? color, double width = 1.0, double borderRadius = 50}) {
@@ -107,7 +106,7 @@ class _AppTextFieldState extends State<DecoratedTextField> {
       },
       cursorHeight: 22,
       keyboardType: widget.inputType,
-      cursorColor: context.appPrimaryColor,
+      cursorColor: context.appTitleColor,
       textCapitalization: widget.textCapitalization,
       obscureText: isPasswordField && obscureText,
       onChanged: widget.onChanged,
@@ -144,7 +143,7 @@ class _AppTextFieldState extends State<DecoratedTextField> {
                 },
                 icon: Icon(
                   obscureText ? Icons.visibility_off : Icons.visibility,
-                  color: context.appTextLightBlackColor,
+                  color: context.appColor,
                   size: 16,
                 ),
               )
@@ -153,27 +152,25 @@ class _AppTextFieldState extends State<DecoratedTextField> {
             const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         border: widget.buildBorder(
-            color: context.appTextWhiteColor,
-            borderRadius: widget.borderRadius),
+            color: context.appColor, borderRadius: widget.borderRadius),
         enabledBorder: widget.validationError == ValidationError.empty
             ? widget.buildBorder(
                 color: Colors.red, width: 2, borderRadius: widget.borderRadius)
             : widget.currentValue != null
                 ? widget.currentValue!.isNotEmpty
                     ? widget.buildBorder(
-                        color: context.appTextLightBlackColor,
+                        color: context.appColor,
                         borderRadius: widget.borderRadius)
                     : widget.buildBorder(
-                        color: context.appTextLightBlackColor,
+                        color: context.appColor,
                         borderRadius: widget.borderRadius)
                 : widget.buildBorder(
                     width: 1,
-                    color: widget.fillcolor
-                        ? context.appTextWhiteColor
-                        : context.borderColor,
+                    color:
+                        widget.fillcolor ? context.appColor : context.appColor,
                     borderRadius: widget.borderRadius),
         focusedBorder: widget.buildBorder(
-            color: context.appPrimaryColor,
+            color: context.appColor,
             width: 2,
             borderRadius: widget.borderRadius),
         errorBorder: widget.buildBorder(
@@ -182,11 +179,10 @@ class _AppTextFieldState extends State<DecoratedTextField> {
             ? widget.buildBorder(
                 color: Colors.red, borderRadius: widget.borderRadius)
             : widget.buildBorder(
-                color: context.appTextLightBlackColor,
-                borderRadius: widget.borderRadius),
-        hintStyle: context.bodysmall,
-        helperStyle: context.bodysmall,
-        errorStyle: context.bodysmall,
+                color: context.appColor, borderRadius: widget.borderRadius),
+        hintStyle: context.bodyLarge?.copyWith(color: Colors.grey),
+        helperStyle: context.bodyLarge?.copyWith(color: Colors.grey),
+        errorStyle: context.bodyLarge?.copyWith(color: Colors.red),
       ),
     );
   }

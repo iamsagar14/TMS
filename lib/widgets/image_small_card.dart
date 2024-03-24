@@ -7,7 +7,7 @@ import 'package:tms/app/routes/app_pages.dart';
 import 'package:tms/utils/buildContext_extension.dart';
 // 🌎 Project imports:
 
-class ImageSmallCard extends StatelessWidget {
+class ImageSmallCard extends StatefulWidget {
   const ImageSmallCard({
     super.key,
     required this.title,
@@ -17,13 +17,27 @@ class ImageSmallCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final String? image;
+
+  @override
+  State<ImageSmallCard> createState() => _ImageSmallCardState();
+}
+
+class _ImageSmallCardState extends State<ImageSmallCard> {
+  bool isFavorite = false;
+
+  void toggleFavorite() {
+    setState(() {
+      isFavorite = !isFavorite;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        image != null
+        widget.image != null
             ? Stack(
                 children: [
                   ClipRRect(
@@ -31,7 +45,7 @@ class ImageSmallCard extends StatelessWidget {
                     child: CachedNetworkImage(
                       placeholder: (context, url) =>
                           Image.asset('assets/horse.png'),
-                      imageUrl: image!,
+                      imageUrl: widget.image!,
                       width: double.infinity,
                       height: Get.height * 0.35,
                       fit: BoxFit.cover,
@@ -41,14 +55,20 @@ class ImageSmallCard extends StatelessWidget {
                   Positioned(
                     right: Get.width * 0.02,
                     top: Get.height * 0.02,
-                    child: Container(
-                      margin: const EdgeInsets.only(top: 10, right: 5),
-                      padding: const EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: context.appColor,
+                    child: GestureDetector(
+                      onTap: toggleFavorite,
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 10, right: 5),
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: context.appColor,
+                        ),
+                        child: Icon(
+                          isFavorite ? Icons.favorite : Icons.favorite_border,
+                          color: context.lightredColor,
+                        ),
                       ),
-                      child: Icon(Icons.favorite, color: context.lightredColor),
                     ),
                   ),
                   Positioned(

@@ -80,7 +80,9 @@ class HomeView extends GetView<HomeController> {
                         title: index == 0 ? 'Top 30 places' : 'Nature',
                         imageurl: index == 0
                             ? 'assets/starticon.png'
-                            : 'assets/starticon.png',
+                            : index == 1
+                                ? 'assets/treeicon.png'
+                                : 'assets/stupa.png',
                         iconBackgroundColor: index == 0
                             ? context.mediumpurlpeColor
                             : index == 1

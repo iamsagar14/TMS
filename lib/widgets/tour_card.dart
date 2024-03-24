@@ -4,7 +4,9 @@ import 'package:tms/utils/buildContext_extension.dart';
 class TourCard extends StatelessWidget {
   const TourCard({
     super.key,
+    required this.imageurl,
   });
+  final String imageurl;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class TourCard extends StatelessWidget {
             decoration: BoxDecoration(
                 color: context.appColor,
                 borderRadius: BorderRadius.circular(8)),
-            child: Image.asset('assets/titleicon.png'),
+            child: Image.asset(imageurl),
           ),
           const SizedBox(
             height: 10,

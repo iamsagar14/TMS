@@ -57,9 +57,17 @@ class TourpageView extends GetView<TourpageController> {
                 child: Row(
                   children: List.generate(
                     10,
-                    (index) => const Padding(
-                        padding: EdgeInsets.only(right: 10.0),
-                        child: TourCard()),
+                    (index) => Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: TourCard(
+                          imageurl: index == 0
+                              ? 'assets/onboard.png'
+                              : index == 1
+                                  ? 'assets/car.png'
+                                  : index == 2
+                                      ? 'assets/car.png'
+                                      : 'assets/onboard.png',
+                        )),
                   ),
                 ),
               ),

@@ -3,20 +3,19 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:get/get.dart';
-import 'package:tms/app/routes/app_pages.dart';
+import 'package:tms/app/data/model/CategoryPlace.dart';
+import 'package:tms/services/api/manager/storage_manager.dart';
+import 'package:tms/services/locator.dart';
 import 'package:tms/utils/buildContext_extension.dart';
 // 🌎 Project imports:
 
 class ImageSmallCard extends StatefulWidget {
   const ImageSmallCard({
     super.key,
-    required this.title,
-    this.image,
-    required this.subtitle,
+    required this.categoryPlace,
   });
-  final String title;
-  final String subtitle;
-  final String? image;
+
+  final CategoryPlace categoryPlace;
 
   @override
   State<ImageSmallCard> createState() => _ImageSmallCardState();
@@ -24,10 +23,26 @@ class ImageSmallCard extends StatefulWidget {
 
 class _ImageSmallCardState extends State<ImageSmallCard> {
   bool isFavorite = false;
+  final _storagemanger = locator.get<StorageManager>();
 
   void toggleFavorite() {
     setState(() {
       isFavorite = !isFavorite;
+      widget.categoryPlace.isfavorite = !widget.categoryPlace.isfavorite;
+      _storagemanger.saveFavorite(
+          widget.categoryPlace.id.toString(), isFavorite);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _storagemanger
+        .loadFavorite(widget.categoryPlace.id.toString())
+        .then((value) {
+      setState(() {
+        isFavorite = value;
+      });
     });
   }
 
@@ -37,15 +52,13 @@ class _ImageSmallCardState extends State<ImageSmallCard> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        widget.image != null
+        widget.categoryPlace.image != null
             ? Stack(
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(28),
                     child: CachedNetworkImage(
-                      placeholder: (context, url) =>
-                          Image.asset('assets/horse.png'),
-                      imageUrl: widget.image!,
+                      imageUrl: widget.categoryPlace.image,
                       width: double.infinity,
                       height: Get.height * 0.35,
                       fit: BoxFit.cover,
@@ -75,9 +88,9 @@ class _ImageSmallCardState extends State<ImageSmallCard> {
                     bottom: Get.height * 0.1,
                     left: Get.width * 0.06,
                     child: SizedBox(
-                      width: Get.width * 0.4,
+                      width: Get.width * 0.5,
                       child: Text(
-                        'Hey visiti this place  pokhapokharpokharpokharpokharr  ',
+                        widget.categoryPlace.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: context.titleLarge
@@ -107,7 +120,7 @@ class _ImageSmallCardState extends State<ImageSmallCard> {
                               width: 5,
                             ),
                             Text(
-                              '5.10',
+                              widget.categoryPlace.rating.toString(),
                               style: context.bodysmall?.copyWith(
                                   fontSize: 13, color: context.appColor),
                             )

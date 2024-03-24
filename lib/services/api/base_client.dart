@@ -1,21 +1,25 @@
 // 📦 Package imports:
 import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-// 🌎 Project imports:
-import 'package:tms/services/api/endpoint.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:tms/config/config.dart';
 import 'package:tms/services/api/interceptor/error_interceptor.dart';
 
+// 🌎 Project imports:
 class BaseClient {
-  late final Dio _dio = _createDio();
+  final Config _config;
+  BaseClient({
+    required Config config,
+  }) : _config = config;
 
-  Dio get dio => _dio;
-  Dio _createDio() {
+  Future<Dio> createDio() async {
     Dio dio = Dio();
     dio.options = BaseOptions(
-      baseUrl: Endpoint.baseUrl,
+      baseUrl: _config.baseUrl,
+      // connectTimeout: const Duration(seconds: 5),
+      // receiveTimeout: const Duration(seconds: 10),
       contentType: 'application/json',
-      responseType: ResponseType.plain,
+      responseType: ResponseType.json,
     );
     dio.interceptors.addAll(
       [
@@ -28,7 +32,7 @@ class BaseClient {
           error: true,
           compact: true,
           maxWidth: 90,
-        )
+        ),
       ],
     );
     return dio;

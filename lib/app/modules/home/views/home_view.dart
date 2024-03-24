@@ -107,30 +107,31 @@ class HomeView extends GetView<HomeController> {
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(
-                    10,
-                    (index) => SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.toNamed(
-                              Routes.TOURPAGE,
-                            );
-                          },
-                          child: const ImageSmallCard(
-                            title: 'Topic about the most viewed Tuitor ',
-                            subtitle: 'Motion and measurement of Distance',
-                            image:
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7akb2BXgFsCemf37d4eIGaMuP-Q16LcrFiNmUAiUPxg&s',
+                child: Obx(() => Row(
+                      children: List.generate(
+                        controller.placeCategory.length,
+                        (index) => SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed(
+                                  Routes.TOURPAGE,
+                                  arguments: {
+                                    "favoritePlace":
+                                        controller.placeCategory[index],
+                                  },
+                                );
+                              },
+                              child: ImageSmallCard(
+                                categoryPlace: controller.placeCategory[index],
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                ),
+                    )),
               ),
             ],
           ),

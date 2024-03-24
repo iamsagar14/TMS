@@ -11,8 +11,8 @@ class DashboardView extends GetView<DashboardController> {
     List<IconData> icons = [
       Icons.grid_view,
       Icons.favorite_outline,
-      Icons.messenger_sharp,
-      Icons.settings,
+      Icons.maps_ugc_outlined,
+      Icons.settings_outlined,
     ];
 
     return Scaffold(
@@ -58,7 +58,7 @@ class DashboardView extends GetView<DashboardController> {
                             size: 30,
                             color: controller.currentIndexBottomBar == index
                                 ? context.appColor
-                                : const Color(0xFF414141),
+                                : null,
                           ),
                         ),
                       )),

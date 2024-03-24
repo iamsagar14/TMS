@@ -41,8 +41,6 @@ class _ImageBigCardCardState extends State<ImageBigCardCard> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(34),
                   child: CachedNetworkImage(
-                    placeholder: (context, url) =>
-                        Image.asset('assets/horse.png'),
                     imageUrl: widget.image!,
                     width: double.infinity,
                     height: Get.height * 0.5,

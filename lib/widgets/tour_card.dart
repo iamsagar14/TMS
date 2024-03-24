@@ -5,8 +5,10 @@ class TourCard extends StatelessWidget {
   const TourCard({
     super.key,
     required this.imageurl,
+    required this.title,
   });
   final String imageurl;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class TourCard extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'From 90 Rs',
+            title,
             style: context.bodyLarge?.copyWith(
               color: Colors.grey,
             ),

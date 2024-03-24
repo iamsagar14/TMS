@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
+import 'package:tms/app/data/model/CategoryPlace.dart';
 
 class TourpageController extends GetxController {
-  //TODO: Implement TourpageController
-
+  CategoryPlace? categoryPlace;
   final count = 0.obs;
   @override
   void onInit() {
+    categoryPlace = Get.arguments['favoritePlace'];
     super.onInit();
   }
 

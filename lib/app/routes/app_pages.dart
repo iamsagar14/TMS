@@ -42,6 +42,7 @@ class AppPages {
       name: _Paths.DASHBOARD,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.NOTIFICATION,

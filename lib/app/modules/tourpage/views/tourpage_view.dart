@@ -23,15 +23,14 @@ class TourpageView extends GetView<TourpageController> {
               const SizedBox(
                 height: 10,
               ),
-              const ImageBigCardCard(
-                image:
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7akb2BXgFsCemf37d4eIGaMuP-Q16LcrFiNmUAiUPxg&s',
+              ImageBigCardCard(
+                image: controller.categoryPlace!.image,
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                'Shulgaт-Tash cave ',
+                controller.categoryPlace!.title,
                 style: context.titleLarge?.copyWith(
                   fontSize: 28,
                   color: context.appTitleColor,
@@ -40,11 +39,9 @@ class TourpageView extends GetView<TourpageController> {
               const SizedBox(
                 height: 10,
               ),
-              const SingleChildScrollView(
-                child: ExpandedWidget(
-                  text:
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-                ),
+              SingleChildScrollView(
+                child:
+                    ExpandedWidget(text: controller.categoryPlace!.description),
               ),
               const SizedBox(
                 height: 10,
@@ -61,12 +58,17 @@ class TourpageView extends GetView<TourpageController> {
                         padding: const EdgeInsets.only(right: 10.0),
                         child: TourCard(
                           imageurl: index == 0
-                              ? 'assets/onboard.png'
+                              ? 'assets/book.png'
                               : index == 1
                                   ? 'assets/car.png'
                                   : index == 2
-                                      ? 'assets/car.png'
-                                      : 'assets/onboard.png',
+                                      ? 'assets/onboard.png'
+                                      : 'assets/car.png',
+                          title: index == 0
+                              ? 'From 90 Rs'
+                              : index == 1
+                                  ? 'Tavel Here'
+                                  : 'omboard',
                         )),
                   ),
                 ),

@@ -58,3 +58,8 @@ Contains the implementation of data access and storage. This layer interacts wit
 Maintainability: Clean Architecture promotes code that is easier to understand and maintain, as each layer has well-defined responsibilities.
 Testability: The architecture makes it easier to write unit tests for each layer independently, leading to more reliable and robust code.
 Flexibility: Clean Architecture allows for easier modification and extension of the application, as changes in one layer do not affect the others.
+##  Localization with GetX
+This project utilizes GetX for localization, a powerful state management library for Flutter. GetX provides a simple and efficient way to manage translations and switch between different languages in your application.
+## Benefits
+Simplicity: GetX simplifies the process of adding localization to your app with its easy-to-use APIs.
+Efficiency: GetX's reactive nature ensures that your UI updates automatically when the language is changed, without the need to manually manage state.

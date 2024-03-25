@@ -7,5 +7,5 @@ class Endpoint {
 
   static final String baseUrl = locator.get<Config>().baseUrl;
   static const String placeCategory = 'placeCategory';
-  static const String popularplaces = 'Popularplaces';
+  static const String popularplaces = 'popularplaces';
 }

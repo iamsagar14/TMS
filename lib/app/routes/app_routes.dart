@@ -11,6 +11,8 @@ abstract class Routes {
   static const NOTIFICATION = _Paths.NOTIFICATION;
   static const FAVORITE = _Paths.FAVORITE;
   static const PROFILE = _Paths.PROFILE;
+    static const SEARCHPAGE = _Paths.SEARCHPAGE;
+
 }
 
 abstract class _Paths {
@@ -21,4 +23,5 @@ abstract class _Paths {
   static const NOTIFICATION = '/notification';
   static const FAVORITE = '/favorite';
   static const PROFILE = '/profile';
+  static const SEARCHPAGE = '/searchpage';
 }

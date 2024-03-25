@@ -39,7 +39,11 @@ class HomeView extends GetView<HomeController> {
                   const SizedBox(
                     height: 5,
                   ),
-                  Image.asset('assets/titleicon.png')
+                  GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.SEARCHPAGE);
+                      },
+                      child: Image.asset('assets/titleicon.png'))
                 ],
               ),
               Text(
@@ -49,10 +53,13 @@ class HomeView extends GetView<HomeController> {
               const SizedBox(
                 height: 20,
               ),
-              const DecoratedTextField(
+              DecoratedTextField(
+                onChanged: (Value) {
+                  Get.toNamed(Routes.SEARCHPAGE);
+                },
                 hintText: 'Enter name or category',
                 borderRadius: 16,
-                suffixIcon: Icon(
+                suffixIcon: const Icon(
                   Icons.search,
                   color: Colors.grey,
                 ),

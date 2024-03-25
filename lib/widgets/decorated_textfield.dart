@@ -39,31 +39,33 @@ class DecoratedTextField extends StatefulWidget with DecoratedBorder {
   final TextCapitalization textCapitalization;
   final Function()? onTap;
   final bool fillcolor;
-  const DecoratedTextField({
-    Key? key,
-    this.inputType,
-    this.controller,
-    this.focusNode,
-    this.nextFocusNode,
-    this.currentValue,
-    this.validationError,
-    this.onChanged,
-    this.onFieldSubmitted,
-    this.hintText,
-    this.labelText,
-    this.minLines = 1,
-    this.maxLines = 1,
-    this.helperText,
-    this.enabled = true,
-    this.prefixIcon,
-    this.suffixIcon,
-    this.onTap,
-    this.textInputAction = TextInputAction.done,
-    this.textCapitalization = TextCapitalization.none,
-    this.borderRadius = 50,
-    this.hinttextalin = true,
-    this.fillcolor = true,
-  }) : super(key: key);
+  final bool autofucus;
+  const DecoratedTextField(
+      {Key? key,
+      this.inputType,
+      this.controller,
+      this.focusNode,
+      this.nextFocusNode,
+      this.currentValue,
+      this.validationError,
+      this.onChanged,
+      this.onFieldSubmitted,
+      this.hintText,
+      this.labelText,
+      this.minLines = 1,
+      this.maxLines = 1,
+      this.helperText,
+      this.enabled = true,
+      this.prefixIcon,
+      this.suffixIcon,
+      this.onTap,
+      this.textInputAction = TextInputAction.done,
+      this.textCapitalization = TextCapitalization.none,
+      this.borderRadius = 50,
+      this.hinttextalin = true,
+      this.fillcolor = true,
+      this.autofucus = false})
+      : super(key: key);
   @override
   State<DecoratedTextField> createState() => _AppTextFieldState();
 }
@@ -88,6 +90,7 @@ class _AppTextFieldState extends State<DecoratedTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: widget.autofucus ? true : false,
       textAlign: widget.hinttextalin == true ? TextAlign.left : TextAlign.left,
       initialValue: widget.currentValue,
       controller: widget.controller,
@@ -116,7 +119,7 @@ class _AppTextFieldState extends State<DecoratedTextField> {
           ? TextInputAction.next
           : widget.textInputAction,
       enabled: widget.enabled,
-      style: context.bodysmall,
+      style: context.bodyLarge?.copyWith(fontSize: 15),
       decoration: InputDecoration(
         labelText: widget.labelText,
         labelStyle: context.bodysmall,

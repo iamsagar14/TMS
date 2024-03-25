@@ -3,6 +3,6 @@
     "json-server": "^1.0.0-alpha.23"
   },
   "scripts": {
-    "run-server":"json-server --host 192.168.101.5 --port 4000 database.json"
+    "run-server": "json-server --host 192.168.101.5 --port 5000  database.json"
   }
 }

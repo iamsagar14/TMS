@@ -21,7 +21,7 @@ class PopularPlaceApi {
         Endpoint.popularplaces,
         queryParameters: {
           "p": page,
-          "search": search,
+          "q": search,
         },
       );
       _apiClient.options.headers['requires_token'] = true;

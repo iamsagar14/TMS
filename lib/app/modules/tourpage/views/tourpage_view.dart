@@ -79,6 +79,8 @@ class TourpageView extends GetView<TourpageController> {
               BasicPrimaryButton(
                 title: 'button_title'.tr,
                 onPressed: () {},
+                radius: 40,
+                trailingIcon: true,
               )
             ],
           ),

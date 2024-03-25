@@ -18,6 +18,7 @@ class HomeController extends GetxController {
   RxList<PopularPlace> popularPlace = <PopularPlace>[].obs;
   RxList<PopularPlace> favoritePlace = <PopularPlace>[].obs;
   RxBool isLoading = false.obs;
+  RxBool isLoadingCategory = false.obs;
   RxBool hasReachedMax = false.obs;
 
   TextInput searchInput = const TextInput.pure();
@@ -61,6 +62,7 @@ class HomeController extends GetxController {
 
   Future<void> fetchPlaceCategory() async {
     try {
+      isLoadingCategory(true);
       final result = await _categoryApi.fetchPlaceCategoryAPi(page: 1);
       if (result != null) {
         placeCategory.addAll(result);
@@ -69,7 +71,10 @@ class HomeController extends GetxController {
           page++;
         }
       }
-    } catch (_) {}
+      isLoadingCategory(false);
+    } catch (_) {
+      isLoadingCategory(false);
+    }
   }
 
   void clearPlaceList() {

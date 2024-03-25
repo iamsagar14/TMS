@@ -18,6 +18,7 @@ dependencies:
   cached_network_image: ^3.3.1
   formz: ^0.7.0
   hexcolor: ^3.0.1
+  skeletons: ^0.0.3
 
 dev_dependencies:
   flutter_test:

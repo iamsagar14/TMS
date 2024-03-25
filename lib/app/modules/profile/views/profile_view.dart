@@ -61,6 +61,8 @@ class ProfileView extends GetView<ProfileController> {
                               Navigator.pop(context);
                             },
                             title: "English",
+                               radius: 16,
+                            trailingIcon: false,
                           ),
                           secondaryButton: BasicPrimaryButton(
                             onPressed: () {
@@ -70,6 +72,8 @@ class ProfileView extends GetView<ProfileController> {
                               Navigator.pop(context);
                             },
                             title: "नेपाली",
+                            radius: 16,
+                            trailingIcon: false,
                           ),
                         ),
                         barrierDismissible: false,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // 📦 Package imports:
 import 'package:get/get.dart';
+import 'package:skeletons/skeletons.dart';
 import 'package:tms/app/routes/app_pages.dart';
 import 'package:tms/utils/buildContext_extension.dart';
 import 'package:tms/widgets/reusable_card.dart';
@@ -54,7 +55,7 @@ class HomeView extends GetView<HomeController> {
                 height: 20,
               ),
               DecoratedTextField(
-                onChanged: (Value) {
+                onTap: () {
                   Get.toNamed(Routes.SEARCHPAGE);
                 },
                 hintText: 'home_textFieldhindtext'.tr,
@@ -79,26 +80,49 @@ class HomeView extends GetView<HomeController> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Obx(() => Row(
-                      children: List.generate(
-                        controller.placeCategory.length,
-                        (index) => Padding(
-                          padding: const EdgeInsets.only(right: 5.0),
-                          child: CategoryCard(
-                            title: controller.placeCategory[index].title
-                                .toString(),
-                            imageurl: index == 0
-                                ? 'assets/starticon.png'
-                                : index == 1
-                                    ? 'assets/treeicon.png'
-                                    : 'assets/stupa.png',
-                            iconBackgroundColor: index == 0
-                                ? context.mediumpurlpeColor
-                                : index == 1
-                                    ? context.bizzardbluwColor
-                                    : context.lightredColor,
-                          ),
-                        ),
-                      ),
+                      children: controller.isLoadingCategory.isFalse
+                          ? List.generate(
+                              controller.placeCategory.length,
+                              (index) => Padding(
+                                padding: const EdgeInsets.only(right: 5.0),
+                                child: CategoryCard(
+                                  title: controller.placeCategory[index].title
+                                      .toString(),
+                                  imageurl: index == 0
+                                      ? 'assets/starticon.png'
+                                      : index == 1
+                                          ? 'assets/treeicon.png'
+                                          : 'assets/stupa.png',
+                                  iconBackgroundColor: index == 0
+                                      ? context.mediumpurlpeColor
+                                      : index == 1
+                                          ? context.bizzardbluwColor
+                                          : context.lightredColor,
+                                ),
+                              ),
+                            )
+                          : List.generate(
+                              5,
+                              (index) => Padding(
+                                    padding: const EdgeInsets.only(right: 5.0),
+                                    child: Center(
+                                      child: SkeletonAvatar(
+                                        style: SkeletonAvatarStyle(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          randomWidth: false,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.4,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.08,
+                                        ),
+                                      ),
+                                    ),
+                                  )),
                     )),
               ),
               const SizedBox(
@@ -116,29 +140,53 @@ class HomeView extends GetView<HomeController> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Obx(() => Row(
-                      children: List.generate(
-                        controller.popularPlace.length,
-                        (index) => SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.6,
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 20),
-                            child: GestureDetector(
-                              onTap: () {
-                                Get.toNamed(
-                                  Routes.TOURPAGE,
-                                  arguments: {
-                                    "favoritePlace":
-                                        controller.popularPlace[index],
-                                  },
-                                );
-                              },
-                              child: ImageSmallCard(
-                                popularPlace: controller.popularPlace[index],
+                      children: controller.isLoading.isFalse
+                          ? List.generate(
+                              controller.popularPlace.length,
+                              (index) => SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.6,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 20),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed(
+                                        Routes.TOURPAGE,
+                                        arguments: {
+                                          "favoritePlace":
+                                              controller.popularPlace[index],
+                                        },
+                                      );
+                                    },
+                                    child: ImageSmallCard(
+                                      popularPlace:
+                                          controller.popularPlace[index],
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
-                      ),
+                            )
+                          : List.generate(
+                              5,
+                              (index) => Padding(
+                                    padding: const EdgeInsets.only(right: 10.0),
+                                    child: Center(
+                                      child: SkeletonAvatar(
+                                        style: SkeletonAvatarStyle(
+                                          borderRadius:
+                                              BorderRadius.circular(28),
+                                          randomWidth: false,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.4,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.3,
+                                        ),
+                                      ),
+                                    ),
+                                  )),
                     )),
               ),
             ],

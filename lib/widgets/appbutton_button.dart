@@ -6,9 +6,13 @@ class BasicPrimaryButton extends StatelessWidget {
     super.key,
     this.onPressed,
     required this.title,
+    required this.radius,
+    required this.trailingIcon,
   });
   final Function()? onPressed;
   final String title;
+  final double radius;
+  final bool trailingIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +27,16 @@ class BasicPrimaryButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           textStyle: context.bodyLarge,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(radius),
           ),
         ),
         label: Text(title),
-        icon: const Icon(
-          Icons.arrow_back,
-          size: 18,
-        ),
+        icon: trailingIcon
+            ? const Icon(
+                Icons.arrow_back,
+                size: 18,
+              )
+            : const SizedBox(),
       ),
     );
   }

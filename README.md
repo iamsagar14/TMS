@@ -39,3 +39,4 @@ String baseUrl get {
     }
 }
 ```
+When cloning and running this project, ensure that you start your own instance of JSON Server on a unique port to avoid conflicts. Use the following command to start JSON Server on your preferred port:

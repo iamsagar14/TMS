@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 // 📦 Package imports:
 import 'package:get/get.dart';
-import 'package:tms/app/data/model/CategoryPlace.dart';
+import 'package:tms/app/data/model/populaer_place.dart';
 import 'package:tms/services/api/manager/storage_manager.dart';
 import 'package:tms/services/locator.dart';
 import 'package:tms/utils/buildContext_extension.dart';
@@ -12,10 +12,10 @@ import 'package:tms/utils/buildContext_extension.dart';
 class ImageSmallCard extends StatefulWidget {
   const ImageSmallCard({
     super.key,
-    required this.categoryPlace,
+    required this.popularPlace,
   });
 
-  final CategoryPlace categoryPlace;
+  final PopularPlace popularPlace;
 
   @override
   State<ImageSmallCard> createState() => _ImageSmallCardState();
@@ -28,9 +28,9 @@ class _ImageSmallCardState extends State<ImageSmallCard> {
   void toggleFavorite() {
     setState(() {
       isFavorite = !isFavorite;
-      widget.categoryPlace.isfavorite = !widget.categoryPlace.isfavorite;
+      widget.popularPlace.isfavorite = !widget.popularPlace.isfavorite;
       _storagemanger.saveFavorite(
-          widget.categoryPlace.id.toString(), isFavorite);
+          widget.popularPlace.id.toString(), isFavorite);
     });
   }
 
@@ -38,7 +38,7 @@ class _ImageSmallCardState extends State<ImageSmallCard> {
   void initState() {
     super.initState();
     _storagemanger
-        .loadFavorite(widget.categoryPlace.id.toString())
+        .loadFavorite(widget.popularPlace.id.toString())
         .then((value) {
       setState(() {
         isFavorite = value;
@@ -52,13 +52,13 @@ class _ImageSmallCardState extends State<ImageSmallCard> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        widget.categoryPlace.image != null
+        widget.popularPlace.image != null
             ? Stack(
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(28),
                     child: CachedNetworkImage(
-                      imageUrl: widget.categoryPlace.image,
+                      imageUrl: widget.popularPlace.image,
                       width: double.infinity,
                       height: Get.height * 0.35,
                       fit: BoxFit.cover,
@@ -90,7 +90,7 @@ class _ImageSmallCardState extends State<ImageSmallCard> {
                     child: SizedBox(
                       width: Get.width * 0.5,
                       child: Text(
-                        widget.categoryPlace.title,
+                        widget.popularPlace.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: context.titleLarge
@@ -120,7 +120,7 @@ class _ImageSmallCardState extends State<ImageSmallCard> {
                               width: 5,
                             ),
                             Text(
-                              widget.categoryPlace.rating.toString(),
+                              widget.popularPlace.rating.toString(),
                               style: context.bodysmall?.copyWith(
                                   fontSize: 13, color: context.appColor),
                             )

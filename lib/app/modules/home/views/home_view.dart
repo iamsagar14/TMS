@@ -71,27 +71,28 @@ class HomeView extends GetView<HomeController> {
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(
-                    10,
-                    (index) => Padding(
-                      padding: const EdgeInsets.only(right: 5.0),
-                      child: CategoryCard(
-                        title: index == 0 ? 'Top 30 places' : 'Nature',
-                        imageurl: index == 0
-                            ? 'assets/starticon.png'
-                            : index == 1
-                                ? 'assets/treeicon.png'
-                                : 'assets/stupa.png',
-                        iconBackgroundColor: index == 0
-                            ? context.mediumpurlpeColor
-                            : index == 1
-                                ? context.bizzardbluwColor
-                                : context.lightredColor,
+                child: Obx(() => Row(
+                      children: List.generate(
+                        controller.placeCategory.length,
+                        (index) => Padding(
+                          padding: const EdgeInsets.only(right: 5.0),
+                          child: CategoryCard(
+                            title: controller.placeCategory[index].title
+                                .toString(),
+                            imageurl: index == 0
+                                ? 'assets/starticon.png'
+                                : index == 1
+                                    ? 'assets/treeicon.png'
+                                    : 'assets/stupa.png',
+                            iconBackgroundColor: index == 0
+                                ? context.mediumpurlpeColor
+                                : index == 1
+                                    ? context.bizzardbluwColor
+                                    : context.lightredColor,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
+                    )),
               ),
               const SizedBox(
                 height: 20,
@@ -109,7 +110,7 @@ class HomeView extends GetView<HomeController> {
                 scrollDirection: Axis.horizontal,
                 child: Obx(() => Row(
                       children: List.generate(
-                        controller.placeCategory.length,
+                        controller.popularPlace.length,
                         (index) => SizedBox(
                           width: MediaQuery.of(context).size.width * 0.6,
                           child: Padding(
@@ -120,12 +121,12 @@ class HomeView extends GetView<HomeController> {
                                   Routes.TOURPAGE,
                                   arguments: {
                                     "favoritePlace":
-                                        controller.placeCategory[index],
+                                        controller.popularPlace[index],
                                   },
                                 );
                               },
                               child: ImageSmallCard(
-                                categoryPlace: controller.placeCategory[index],
+                                popularPlace: controller.popularPlace[index],
                               ),
                             ),
                           ),

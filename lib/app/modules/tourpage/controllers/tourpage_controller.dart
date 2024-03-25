@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:tms/app/data/model/CategoryPlace.dart';
+import 'package:tms/app/data/model/populaer_place.dart';
 
 class TourpageController extends GetxController {
-  CategoryPlace? categoryPlace;
+  PopularPlace? categoryPlace;
   final count = 0.obs;
   @override
   void onInit() {

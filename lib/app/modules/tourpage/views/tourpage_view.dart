@@ -77,7 +77,7 @@ class TourpageView extends GetView<TourpageController> {
                 height: 20,
               ),
               BasicPrimaryButton(
-                title: 'Buy a tour',
+                title: 'button_title'.tr,
                 onPressed: () {},
               )
             ],

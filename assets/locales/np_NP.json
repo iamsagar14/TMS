@@ -1,0 +1,32 @@
+{
+    "button":{
+        "title":"एक भ्रमण किन्नुहोस्"
+    },
+    "Profile": {
+        "appbartitle":"प्रोफाइल",
+        "changeLanguage":"भाषा परिवर्तन गर्नुहोस्",
+        "changeLanguageSubtitle":"आफ्नो पूर्वनिर्धारित भाषा परिवर्तन गर्नुहोस्"
+
+    },
+    "home": {
+        "appbartitle":"घर",
+        "subtitle":"अर्को छान्नुहोस्",
+        "textFieldhindtext":"प्रविष्ट गर्नुहोस् वा श्रेणी",
+        "GOGo":"GOGO",
+        "Category":"श्रेणी",
+        "popular":"लोकप्रिय"
+    },
+    "favorite": {
+        "appbartitle":"मनपर्ने दृश्य"
+    },
+    "notification": {
+        "appbartitle":"सूचना दृश्य"
+    },
+    "dialogue":{
+        "title":"भाषा छनोट गर्नुस",
+        "subtitle": "तपाईले प्रयोग गर्न चाहनु भएको भाषा छान्नुहोस्?" 
+    }
+
+
+
+}

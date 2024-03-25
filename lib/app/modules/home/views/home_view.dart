@@ -47,7 +47,7 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
               Text(
-                'Choose another',
+                'home_subtitle'.tr,
                 style: context.bodysmall?.copyWith(color: Colors.grey),
               ),
               const SizedBox(
@@ -57,7 +57,7 @@ class HomeView extends GetView<HomeController> {
                 onChanged: (Value) {
                   Get.toNamed(Routes.SEARCHPAGE);
                 },
-                hintText: 'Enter name or category',
+                hintText: 'home_textFieldhindtext'.tr,
                 borderRadius: 16,
                 suffixIcon: const Icon(
                   Icons.search,
@@ -68,7 +68,7 @@ class HomeView extends GetView<HomeController> {
                 height: 24,
               ),
               Text(
-                'Category',
+                'home_Category'.tr,
                 style: context.titleMediu?.copyWith(
                   color: context.appTitleColor,
                 ),
@@ -105,7 +105,7 @@ class HomeView extends GetView<HomeController> {
                 height: 20,
               ),
               Text(
-                'Popular',
+                'home_popular'.tr,
                 style: context.titleMediu?.copyWith(
                   color: context.appTitleColor,
                 ),

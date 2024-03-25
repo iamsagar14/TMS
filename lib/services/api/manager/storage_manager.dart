@@ -2,6 +2,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class StorageManager {
   static const _favoriteKeyPrefix = 'favorite_';
+     static const _languageKey = 'selectedLanguage';
+
 
   late final FlutterSecureStorage _storage = _createStorage();
   FlutterSecureStorage _createStorage() {
@@ -22,5 +24,12 @@ class StorageManager {
   Future<bool> loadFavorite(String id) async {
     final value = await _storage.read(key: '$_favoriteKeyPrefix$id');
     return value == 'true';
+  }
+     void saveSelectedLanguage(String languageCode) {
+    _storage.write(key: _languageKey, value: languageCode);
+  }
+
+  Future<String?> getSelectedLanguage() async {
+    return await _storage.read(key: _languageKey);
   }
 }

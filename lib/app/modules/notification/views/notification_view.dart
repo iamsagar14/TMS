@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:tms/utils/buildContext_extension.dart';
 
 import '../controllers/notification_controller.dart';
 
@@ -10,8 +11,12 @@ class NotificationView extends GetView<NotificationController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('NotificationView'),
         centerTitle: true,
+        elevation: 0,
+        title: Text(
+          'notification_appbartitle'.tr,
+          style: context.titleMediu,
+        ),
       ),
       body: const Center(
         child: Text(

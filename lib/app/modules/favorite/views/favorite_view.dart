@@ -18,11 +18,12 @@ class FavoriteView extends GetView<FavoriteController> {
         centerTitle: true,
         elevation: 0,
         title: Text(
-          'Favorite places',
+          'favorite_appbartitle'.tr,
           style: context.titleMediu,
         ),
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Obx(() => Column(
               children: List.generate(
                 homecontroller.favoritePlace.length,

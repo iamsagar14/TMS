@@ -40,17 +40,20 @@ String baseUrl get {
 }
 ```
 When cloning and running this project, ensure that you start your own instance of JSON Server on a unique port to avoid conflicts. Use the following command to start JSON Server on your preferred port:
-Clean Architecture
+
+## Clean Architecture
 This project follows the principles of Clean Architecture, a software design philosophy that emphasizes separation of concerns and maintainability. The architecture is structured into distinct layers, each with its own responsibilities and dependencies, allowing for easier testing, scalability, and flexibility.
 
-Layers
-Presentation Layer: Contains the user interface components, such as screens, widgets, and controllers. This layer is responsible for interacting with the user and presenting data.
+## LayersPresentation Layer:
+Contains the user interface components, such as screens, widgets, and controllers. This layer is responsible for interacting with the user and presenting data.
 
-Domain Layer: Contains the business logic and entities of the application. This layer defines the core functionality of the application, independent of any external factors.
+## Domain Layer:
+Contains the business logic and entities of the application. This layer defines the core functionality of the application, independent of any external factors.
 
-Data Layer: Contains the implementation of data access and storage. This layer interacts with external services, such as APIs or databases, to retrieve and store data.
+## Data Layer:
+Contains the implementation of data access and storage. This layer interacts with external services, such as APIs or databases, to retrieve and store data.
 
-Benefits
+## Benefits
 Maintainability: Clean Architecture promotes code that is easier to understand and maintain, as each layer has well-defined responsibilities.
 Testability: The architecture makes it easier to write unit tests for each layer independently, leading to more reliable and robust code.
 Flexibility: Clean Architecture allows for easier modification and extension of the application, as changes in one layer do not affect the others.

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:tms/app/modules/userlist/views/placelist_view.dart';
 
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
@@ -42,6 +43,7 @@ class AppPages {
       name: _Paths.DASHBOARD,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
+      transition: Transition.circularReveal,
     ),
     GetPage(
       name: _Paths.NOTIFICATION,
@@ -57,6 +59,10 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCHPAGE,
+      page: () => const PlacelistView(),
     ),
   ];
 }

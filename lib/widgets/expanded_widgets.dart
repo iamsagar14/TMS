@@ -4,7 +4,6 @@ import 'package:tms/utils/buildContext_extension.dart';
 class ExpandedWidget extends StatefulWidget {
   const ExpandedWidget({super.key, required this.text});
   final String text;
-
   @override
   State<ExpandedWidget> createState() => _ExpandedWidgetState();
 }
@@ -31,13 +30,15 @@ class _ExpandedWidgetState extends State<ExpandedWidget> {
       child: secondHalf.length == ''
           ? Text(
               widget.text,
-              style: context.bodysmall?.copyWith(fontSize: 15),
+              style: context.bodysmall
+                  ?.copyWith(fontSize: 15, color: Colors.grey.withOpacity(0.4)),
             )
           : Column(
               children: [
                 Text(
                   flag ? firstHalf : widget.text,
-                  style: context.bodysmall?.copyWith(fontSize: 15),
+                  style: context.bodysmall
+                      ?.copyWith(fontSize: 15, color: Colors.grey),
                 ),
                 const SizedBox(
                   height: 10,

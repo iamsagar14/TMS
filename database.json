@@ -1,0 +1,136 @@
+{
+    "popularplaces":{
+        "data":[
+            {
+                "id": 1,
+                "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pashupatinath_Temple-2020.jpg/1200px-Pashupatinath_Temple-2020.jpg",
+                "title": " Pasupatinath Temple kathmandu",
+                "description": "This temple situated on the banks of the holy River Bagmati is the most revered Hindu temple in Nepal. The main temple complex is open only to the Hindus; non-Hindus must satisfy themselves by observing from the terraces just across the Bagmati River to the east. As a mark of reverence and tradition, leather items that include shoes, belts and cameras are forbidden within the temple complex and must be left outside. Photography is strictly prohibited",
+                "rating": 7.2,
+                "isfavorite":true
+     
+            },
+            {
+                "id": 2,
+                "image":"https://img.etimg.com/thumb/width-1200,height-900,imgsize-481830,resizemode-75,msid-70411916/industry/services/travel/pokhara-a-city-known-for-its-tranquil-lakes-snowy-peaks-and-quaint-villages.jpg",
+                "title": "Fewa Taal Pokhara ",
+                "description": "Pokhara’s tranquil beauty has been the subject of inspiration for many travel writers. Its pristine air, spectacular backdrop of snowy peaks, blue lakes and surrounding greenery make it ‘the jewel in the Himalaya’, a place of remarkable natural disposition. With the magnificent Annapurna range forming the backdrop and the serenity of the Cluster of 9 Lakes with three major ones - Phewa, Rupa and Begnas – Pokhara is a great destination for a weekend getaway as well as a long relaxing holiday. Pokhara Valley, gateway to the Annapurna region where many a trekker finds his Shangri-la, sits high on the list of ‘must visit’ places in Nepal",
+                "rating": 6.2,
+                "isfavorite":false
+            },
+            {
+                "id": 3,
+                "image":"https://media.nepalmotherhousetreks.com/uploads/media/blog/Tilicho-Lake-Mananag.jpg",
+                "title": "Tilicho Base Camp ",
+                "description": "Tilicho Lake is largest lake at the highest altitude of earth. This Lake is at the bottom of Tilicho peak, situated in the famous Annapurna region of Nepal. Tilicho base camp trek takes you to the lake as well as in front of stunning lake. Trail to Tilicho lake is an appealing adventure "   ,
+                "rating": 8.2,
+                "isfavorite":true
+     
+            },
+            {
+                "id": 4,
+                "image":"https://media.allnepalhiking.com/uploads/fullbanner/488aa5768ca9ab26612b83fad400d1b8-1.webp",
+                "title": "Annapurna Base Camp ",
+                "description": "Annapurna Base Camp Trek 7 days are considered a moderate trek with daily treks ranging from 4 to 7 hours and some steep climbs and hikes. However, with proper preparation and adjustment, the trek is doable for all people with a good level of fitness. It is a comfortable trekking route even for beginners. Annapurna Base Camp Trek will take you to magnificent places which include crossing the scenic Modi Khola River, relaxing in the natural hot spring at Jhinu Danda, going through the charismatic villages of people living there and forest of rhododendron with splendid mountains views surrounded all over you",
+                "rating": 5.2,
+                "isfavorite":false
+     
+            },
+            {
+                "id": 5,
+                "image":"https://www.nepalsanctuarytreks.com/wp-content/uploads/2018/10/lumbini.jpg",
+                "title": "Birth place of Budhhha  ",
+                "description": "Siddhartha Gautama, the Lord Buddha, was born in 623 B.C. in the famous gardens of Lumbini, which soon became a place of pilgrimage. Among the pilgrims was the Indian emperor Ashoka, who erected one of his commemorative pillars there. The site is now being developed as a Buddhist pilgrimage centre, where the archaeological remains associated with the birth of the Lord Buddha form a central feature",
+                "rating": 7.8,
+                "isfavorite":true
+     
+            },
+            {
+                "id": 6,
+                "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Butwal.jpg/1200px-Butwal.jpg",
+                "title": "Butwal -rising city of nepal",
+                "description": "The city is one of the tri-cities of rapidly growing Butwal-Tilottama-Bhairahawa urban agglomeration primarily based on the Siddhartha Highway in West Nepal with a total urban agglomerated population of 421,018.[1] It is one of the fastest-growing cities in Nepal for health, education, construction, communication, trade, and banking sectors. It has highway connections to the Indian border at Sunauli and to the hilly towns in Tansen and Pokhara valley, and holds the title of being The Best City in Nepal" ,
+                "rating": 5.9,
+                "isfavorite":false
+     
+            },
+            {
+                "id": 7,
+                "image":"https://nepaltraveller.com/images/main/1672990694.sidetrackimageoren-yomtov-Da46CKQ88jI-unsplash.jpg",
+                "title": "Tillottam the place to visite ",
+                "description": "The city is one of the tri-cities of rapidly growing Butwal-Tilottama-Bhairahawa urban agglomeration primarily based on the Siddhartha Highway in West Nepal with a total urban agglomerated population of 421,018.[1] It is one of the fastest-growing cities in Nepal for health, education, construction, communication, trade, and banking sectors. It has highway connections to the Indian border at Sunauli and to the hilly towns in Tansen and Pokhara valley, and holds the title of being The Best City in Nepal",
+                "rating": 7.2,
+                "isfavorite":false
+     
+            },
+            {
+                "id": 8,
+                "image":"https://risingnepaldaily.com/storage/media/26250/118582708_4262380870503511_7191211685942392003_n.jpg",
+                "title": "Visit nepal have for enjoyment ",
+                "description": "The city is one of the tri-cities of rapidly growing Butwal-Tilottama-Bhairahawa urban agglomeration primarily based on the Siddhartha Highway in West Nepal with a total urban agglomerated population of 421,018.[1] It is one of the fastest-growing cities in Nepal for health, education, construction, communication, trade, and banking sectors. It has highway connections to the Indian border at Sunauli and to the hilly towns in Tansen and Pokhara valley, and holds the title of being five times in a row",
+                "rating": 6.3,
+                "isfavorite":true
+     
+            },
+            {
+                "id": 9,
+                "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pashupatinath_Temple-2020.jpg/1200px-Pashupatinath_Temple-2020.jpg",
+                "title": "Visit Pasupatinath Temple  ",
+                "description": "The city is one of the tri-cities of rapidly growing Butwal-Tilottama-Bhairahawa urban agglomeration primarily based on the Siddhartha Highway in West Nepal with a total urban agglomerated population of 421,018.[1] It is one of the fastest-growing cities in Nepal for health, education, construction, communication, trade, and banking sectors. It has highway connections to the Indian border at Sunauli and to the hilly towns in Tansen and Pokhara valley, and holds the title of being  five times in a row",
+                "rating": 6.5,
+                "isfavorite":true
+     
+            },
+            {
+                "id": 10,
+                "image":"https://risingnepaldaily.com/storage/media/26250/118582708_4262380870503511_7191211685942392003_n.jpg",
+                "title": "Top  view of the city ",
+                "description": "The city is one of the tri-cities of rapidly growing Butwal-Tilottama-Bhairahawa urban agglomeration primarily based on the Siddhartha Highway in West Nepal with a total urban agglomerated population of 421,018.[1] It is one of the fastest-growing cities in Nepal for health, education, construction, communication, trade, and banking sectors. It has highway connections to the Indian border at Sunauli and to the hilly towns in Tansen and Pokhara valley, and holds the title of being  five times in a row",
+                "rating": 9.1,
+                "isfavorite":false
+     
+            }
+        ]
+    },
+    "placeCategory":{
+        "data":[{
+            "id":1,
+            "title":"Top 30 Places"
+        },
+        {
+            "id":2,
+            "title":"Nature"
+        },
+        {
+            "id":3,
+            "title":"City Escapes"
+        },
+        {
+            "id":4,
+            "title":"Mountain Adventures"
+        },
+        {
+            "id":5,
+            "title":"Cultural Journeys"
+        },
+        {
+            "id":6,
+            "title":"Luxury Getaways"
+        },
+        {
+            "id":7,
+            "title":"Food and Wine Experiences:"
+        },
+        {
+            "id":8,
+            "title":"Religious"
+        },
+        {
+            "id":9,
+            "title":"Nature"
+        }
+
+    ]
+    }
+
+}

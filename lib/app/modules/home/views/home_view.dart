@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // 📦 Package imports:
 import 'package:get/get.dart';
+import 'package:skeletons/skeletons.dart';
 import 'package:tms/app/routes/app_pages.dart';
 import 'package:tms/utils/buildContext_extension.dart';
 import 'package:tms/widgets/reusable_card.dart';
@@ -19,7 +20,7 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       backgroundColor: context.appColor,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,20 +40,27 @@ class HomeView extends GetView<HomeController> {
                   const SizedBox(
                     height: 5,
                   ),
-                  Image.asset('assets/titleicon.png')
+                  GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.SEARCHPAGE);
+                      },
+                      child: Image.asset('assets/titleicon.png'))
                 ],
               ),
               Text(
-                'Choose another',
+                'home_subtitle'.tr,
                 style: context.bodysmall?.copyWith(color: Colors.grey),
               ),
               const SizedBox(
                 height: 20,
               ),
-              const DecoratedTextField(
-                hintText: 'Enter name or category',
+              DecoratedTextField(
+                onTap: () {
+                  Get.toNamed(Routes.SEARCHPAGE);
+                },
+                hintText: 'home_textFieldhindtext'.tr,
                 borderRadius: 16,
-                suffixIcon: Icon(
+                suffixIcon: const Icon(
                   Icons.search,
                   color: Colors.grey,
                 ),
@@ -61,7 +69,7 @@ class HomeView extends GetView<HomeController> {
                 height: 24,
               ),
               Text(
-                'Category',
+                'home_Category'.tr,
                 style: context.titleMediu?.copyWith(
                   color: context.appTitleColor,
                 ),
@@ -71,21 +79,57 @@ class HomeView extends GetView<HomeController> {
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(
-                    10,
-                    (index) => const Padding(
-                      padding: EdgeInsets.only(right: 10.0),
-                      child: CategoryCard(),
-                    ),
-                  ),
-                ),
+                child: Obx(() => Row(
+                      children: controller.isLoadingCategory.isFalse
+                          ? List.generate(
+                              controller.placeCategory.length,
+                              (index) => Padding(
+                                padding: const EdgeInsets.only(right: 5.0),
+                                child: CategoryCard(
+                                  title: controller.placeCategory[index].title
+                                      .toString(),
+                                  imageurl: index == 0
+                                      ? 'assets/starticon.png'
+                                      : index == 1
+                                          ? 'assets/treeicon.png'
+                                          : 'assets/stupa.png',
+                                  iconBackgroundColor: index == 0
+                                      ? context.mediumpurlpeColor
+                                      : index == 1
+                                          ? context.bizzardbluwColor
+                                          : context.lightredColor,
+                                ),
+                              ),
+                            )
+                          : List.generate(
+                              5,
+                              (index) => Padding(
+                                    padding: const EdgeInsets.only(right: 5.0),
+                                    child: Center(
+                                      child: SkeletonAvatar(
+                                        style: SkeletonAvatarStyle(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          randomWidth: false,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.4,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.08,
+                                        ),
+                                      ),
+                                    ),
+                                  )),
+                    )),
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                'Popular',
+                'home_popular'.tr,
                 style: context.titleMediu?.copyWith(
                   color: context.appTitleColor,
                 ),
@@ -95,31 +139,55 @@ class HomeView extends GetView<HomeController> {
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(
-                    10,
-                    (index) => SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.toNamed(
-                              Routes
-                                  .TOURPAGE, // Slide animation from right to left
-                            );
-                          },
-                          child: const ImageSmallCard(
-                            title: 'Topic about the most viewed Tuitor ',
-                            subtitle: 'Motion and measurement of Distance',
-                            image:
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7akb2BXgFsCemf37d4eIGaMuP-Q16LcrFiNmUAiUPxg&s',
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                child: Obx(() => Row(
+                      children: controller.isLoading.isFalse
+                          ? List.generate(
+                              controller.popularPlace.length,
+                              (index) => SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.6,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 20),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed(
+                                        Routes.TOURPAGE,
+                                        arguments: {
+                                          "favoritePlace":
+                                              controller.popularPlace[index],
+                                        },
+                                      );
+                                    },
+                                    child: ImageSmallCard(
+                                      popularPlace:
+                                          controller.popularPlace[index],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          : List.generate(
+                              5,
+                              (index) => Padding(
+                                    padding: const EdgeInsets.only(right: 10.0),
+                                    child: Center(
+                                      child: SkeletonAvatar(
+                                        style: SkeletonAvatarStyle(
+                                          borderRadius:
+                                              BorderRadius.circular(28),
+                                          randomWidth: false,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.4,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.3,
+                                        ),
+                                      ),
+                                    ),
+                                  )),
+                    )),
               ),
             ],
           ),

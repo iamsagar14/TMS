@@ -1,23 +1,29 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tms/services/api/manager/storage_manager.dart';
+import 'package:tms/services/locator.dart';
 
 class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
+ final _storageManager = locator.get<StorageManager>();
 
-  final count = 0.obs;
+  void changeLanguage(Locale locale) async {
+    var selectededLanguage = locale;
+    Get.updateLocale(locale);
+    _storageManager.saveSelectedLanguage(selectededLanguage.languageCode);
+    update();
+  }
+
   @override
   void onInit() {
     super.onInit();
+    _loadSavedLanguage();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> _loadSavedLanguage() async {
+    final selectedLanguage = await _storageManager.getSelectedLanguage();
+    if (selectedLanguage != null) {
+      final locale = Locale(selectedLanguage);
+      Get.updateLocale(locale);
+    }
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

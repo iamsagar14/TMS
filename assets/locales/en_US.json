@@ -1,0 +1,32 @@
+{
+
+    "button":{
+        "title":"Buy a Tour"  
+    },
+    "Profile": {
+        "appbartitle":"Profile",
+        "changeLanguage":"change Language",
+        "changeLanguageSubtitle":"Change your default Language"
+     
+    },
+    "home": {
+        "appbartitle":"Home",
+        "subtitle":"Choose another",
+        "textFieldhindtext":"Enter or category",
+        "GOGo":"GOGO",
+        "Category":"Category",
+        "popular":"Popular"
+    },
+    "favorite": {
+        "appbartitle":"Favorite view"
+    },
+    "notification": {
+        "appbartitle":"Notification view"
+    },
+    "dialogue":{
+        "title":"Select Language",
+        "subtitle": "Choose the language you wish to use?" 
+    }
+   
+
+}

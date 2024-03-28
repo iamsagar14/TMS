@@ -107,7 +107,7 @@ packages/**/pubspec.lock
 # Web related
 lib/generated_plugin_registrant.dart
 
-**/lib/config/
+
 
 # Symbolication related
 app.*.symbols
